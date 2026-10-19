@@ -5,8 +5,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_apon_logo"
-        android:roundIcon="@drawable/ic_apon_logo"
+        android:icon="@android:drawable/sym_def_app_icon"
+        android:roundIcon="@android:drawable/sym_def_app_icon"
         android:label="APON"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.NoActionBar">
