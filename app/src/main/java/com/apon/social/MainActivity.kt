@@ -14,8 +14,14 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
-import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.ChatBubble
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Send
+import androidx.compose.material.icons.outlined.ChatBubbleOutline
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -36,6 +42,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.*
 import coil.compose.AsyncImage
+import com.apon.social.R
 import kotlinx.coroutines.delay
 
 // --- OFFICIAL APON BRAND COLOR PALETTE ---
@@ -187,7 +194,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// --- SPLASH SCREEN WITH OFFICIAL BRANDING ---
+// --- SPLASH SCREEN ---
 @Composable
 fun SplashScreen(onTimeout: () -> Unit) {
     val scale = remember { Animatable(0.7f) }
@@ -267,7 +274,7 @@ fun SplashScreen(onTimeout: () -> Unit) {
     }
 }
 
-// --- AUTH SCREEN WITH OFFICIAL LOGO ---
+// --- AUTH SCREEN ---
 @Composable
 fun AuthScreen(onLoginSuccess: () -> Unit) {
     var isRegister by remember { mutableStateOf(false) }
@@ -371,8 +378,8 @@ fun AuthScreen(onLoginSuccess: () -> Unit) {
 // --- MASTER NAVIGATION CONTAINER ---
 sealed class NavItem(val route: String, val title: String, val icon: ImageVector) {
     object Home : NavItem("feed", "Home", Icons.Filled.Home)
-    object Create : NavItem("create", "Create", Icons.Filled.AddCircleOutline)
-    object Chat : NavItem("chat", "Chat", Icons.Filled.ChatBubbleOutline)
+    object Create : NavItem("create", "Create", Icons.Filled.AddCircle)
+    object Chat : NavItem("chat", "Chat", Icons.Filled.ChatBubble)
     object Profile : NavItem("profile", "Profile", Icons.Filled.Person)
 }
 
@@ -429,7 +436,7 @@ fun MainAppScaffold(onLogout: () -> Unit) {
     }
 }
 
-// --- HOME FEED WITH LOGO IN TOP BAR ---
+// --- HOME FEED ---
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FeedScreen() {
@@ -707,7 +714,7 @@ fun ProfileScreen(onLogout: () -> Unit) {
         Spacer(Modifier.height(12.dp))
         Text(AppState.userBio, fontSize = 14.sp, color = AponWhite)
         Spacer(Modifier.height(24.dp))
-        Divider(color = Color(0x22FFFFFF))
+        HorizontalDivider(color = Color(0x22FFFFFF))
         Spacer(Modifier.height(24.dp))
         Button(
             onClick = onLogout,
